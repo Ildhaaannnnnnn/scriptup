@@ -6,11 +6,31 @@
 # Version: 1.2
 # ==========================
 
+VERSION="1.2"
+SELF_UPDATE_URL="https://raw.githubusercontent.com/Ildhaaannnnnnn/scriptup/main/scriptup.sh"
+VERSION_CHECK_URL="https://raw.githubusercontent.com/Ildhaaannnnnnn/scriptup/main/version.txt"
+
 LOGFILE="update-$(date +%Y%m%d-%H%M%S).log"
 touch "$LOGFILE"
 
 banner() {
     echo -e "\n==========[ AUTO SYSTEM UPDATE ]==========\n"
+}
+
+check_self_update() {
+    echo "[*] Checking for script updates..."
+    latest_version=$(curl -s "$VERSION_CHECK_URL")
+
+    if [[ "$latest_version" != "$VERSION" ]]; then
+        echo "[!] New version available: $latest_version"
+        echo "[*] Updating script..."
+        curl -s -o "$0" "$SELF_UPDATE_URL"
+        chmod +x "$0"
+        echo "[+] Script updated to version $latest_version. Please re-run."
+        exit 0
+    else
+        echo "[✓] You're using the latest version ($VERSION)."
+    fi
 }
 
 check_internet() {
@@ -72,7 +92,7 @@ perform_update() {
 }
 
 # ========================== MAIN ==========================
-
+check_self_update
 banner
 check_internet
 detect_pkg_manager
