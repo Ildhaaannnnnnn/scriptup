@@ -24,10 +24,10 @@ AutoUpSys is a simple yet powerful shell script that automates system updates ac
 
 ```bash
 # Make it executable
-chmod +x AutoUpSys.sh
+chmod +x scriptup.sh
 
 # Run the script
-./AutoUpSys.sh
+./scriptup.sh
 ```
 
 ---
