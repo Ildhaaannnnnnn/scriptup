@@ -109,3 +109,45 @@ Processing triggers for libc-bin (2.41-6) ...
 
 [✔] All done! Log saved to update-20250530-222045.log
 ```
+---
+
+## 🔹Real Output 2
+
+```bash
+
+[*] Checking for script updates...
+[✓] You're using the latest version (1.2).
+
+==========[ AUTO SYSTEM UPDATE ]==========
+
+[*] Checking internet connection...
+[+] Internet OK.
+[+] Package manager detected: apt
+[*] Starting system update...
+Running: sudo apt update
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Hit:1 http://http.kali.org/kali kali-rolling InRelease
+Reading package lists...
+Building dependency tree...
+Reading state information...
+All packages are up to date.
+Running: sudo apt full-upgrade -y
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  dnsutils
+Use 'sudo apt autoremove' to remove it.
+
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 0
+[+] Update completed at Fri May 30 11:05:42 PM WIB 2025
+
+[✔] All done! Log saved to update-20250530-230539.log
+```
