@@ -74,6 +74,13 @@ Running: sudo apt full-upgrade -y
 ```
 
 ---
+## 📸 Screenshot
+ <p align="left">
+   <img src="snapshot.png" width="230" alt="snapshot">
+ </p>
+
+---
+
 
 ## 📂 Logs
 
