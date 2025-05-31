@@ -75,10 +75,14 @@ Running: sudo apt full-upgrade -y
 
 ---
 ## 📸 Screenshot
+
+## Kali linux (wsl2)
  <p align="left">
    <img src="snapshot.png" width="600" alt="snapshot">
  </p>
 
+
+## Arch (wsl2)
  <p align="left">
    <img src="snapshott.png" width="600" alt="snapshott">
  </p>
