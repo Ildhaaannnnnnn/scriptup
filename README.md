@@ -76,7 +76,7 @@ Running: sudo apt full-upgrade -y
 ---
 ## 📸 Screenshot
  <p align="left">
-   <img src="snapshot.png" width="230" alt="snapshot">
+   <img src="snapshot.png" width="300" alt="snapshot">
  </p>
 
 ---
