@@ -79,6 +79,12 @@ Running: sudo apt full-upgrade -y
    <img src="snapshot.png" width="600" alt="snapshot">
  </p>
 
+ <p align="left">
+   <img src="snapshott.png" width="600" alt="snapshott">
+ </p>
+
+- Tested on Kali linux (wsl2)
+- Tested on Arch (wsl2)
 ---
 
 
