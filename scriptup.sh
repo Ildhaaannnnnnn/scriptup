@@ -3,7 +3,7 @@
 # ==========================
 # Auto System Updater Script
 # Author : Ildhaaannnnnnn
-# Version: 1.2
+# Version: 1.2 
 # ==========================
 
 VERSION="1.2"
@@ -43,35 +43,39 @@ check_internet() {
 }
 
 detect_pkg_manager() {
-    if command -v apt &>/dev/null; then
-        PM="apt"
-        UPDATE_CMD="sudo apt update"
-        UPGRADE_CMD="sudo apt full-upgrade -y"
+   if command -v apt >/dev/null 2>&1; then
+    PM="apt"
+    UPDATE="sudo apt update"
+    UPGRADE="sudo apt full-upgrade -y"
 
-    elif command -v dnf &>/dev/null; then
-        PM="dnf"
-        UPDATE_CMD="sudo dnf upgrade --refresh -y"
-        UPGRADE_CMD=""
+   elif command -v dnf >/dev/null 2>&1; then
+    PM="dnf"
+    UPDATE="sudo dnf check-update"
+    UPGRADE="sudo dnf upgrade -y"
 
-    elif command -v yum &>/dev/null; then
-        PM="yum"
-        UPDATE_CMD="sudo yum update -y"
-        UPGRADE_CMD=""
+   elif command -v yum >/dev/null 2>&1; then
+    PM="yum"
+    UPDATE="sudo yum check-update"
+    UPGRADE="sudo yum upgrade -y"
 
-    elif command -v pacman &>/dev/null; then
-        PM="pacman"
-        UPDATE_CMD="sudo pacman -Syu --noconfirm"
-        UPGRADE_CMD=""
+   elif command -v pacman >/dev/null 2>&1; then
+    PM="pacman"
+    UPDATE="sudo pacman -Sy"
+    UPGRADE="sudo pacman -Su --noconfirm"
 
-    elif command -v zypper &>/dev/null; then
-        PM="zypper"
-        UPDATE_CMD="sudo zypper refresh"
-        UPGRADE_CMD="sudo zypper update -y"
+   elif command -v zypper >/dev/null 2>&1; then
+    PM="zypper"
+    UPDATE="sudo zypper refresh"
+    UPGRADE="sudo zypper update -y"
 
-    else
-        echo "[!] Unsupported distro. Exiting."
-        exit 2
-    fi
+   elif command -v apk >/dev/null 2>&1; then
+    PM="apk"
+    UPDATE="sudo apk update"
+    UPGRADE="sudo apk upgrade"
+ else
+    echo "[!] No supported package manager found!"
+    exit 1
+fi
 
     echo "[+] Package manager detected: $PM"
 }

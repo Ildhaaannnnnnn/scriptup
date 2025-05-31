@@ -1,38 +1,66 @@
 <p align="center">
-   <img src="logo.png" width="250" alt="scrip automatic update && upgrade">
+  <img src="logo.png" width="220" alt="AutoUpSys logo">
 </p>
 
-# 🔄 AutoUpSys
+<h1 align="center">🔄 AutoUpSys</h1>
 
-> Advanced multi-distro Linux update & upgrade script with smart detection and logging.
+<p align="center">
+  <b>Smart multi-distro Linux updater for hackers, sysadmins, and power users.</b><br>
+  <i>Just run once — and update everything with a single command.</i>
+</p>
 
-AutoUpSys is a simple yet powerful shell script that automates system updates across multiple Linux distributions. It checks your internet connection, detects your package manager, and performs updates and upgrades automatically. Ideal for hackers, sysadmins, or power users who want one script that *just works* across different systems.
+<p align="center">
+  <img alt="Shell Script" src="https://img.shields.io/badge/made%20with-bash-1f425f.svg">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
+  <img alt="Status" src="https://img.shields.io/badge/version-1.2-green">
+</p>
+
+---
+
+## ✨ Overview
+
+**AutoUpSys** is a lightweight, intelligent Bash script for system updates on Linux.  
+It auto-detects the package manager, checks internet connectivity, performs a complete system update and upgrade, and logs everything with a timestamp.  
+Perfect for those who maintain multiple machines or need a unified tool that "just works".
 
 ---
 
 ## ⚙️ Features
 
-- ✅ Multi-distro support (Debian, Ubuntu, Arch, Fedora, CentOS, openSUSE)
-- 🌐 Internet connectivity check before updating
-- 🔍 Auto-detection of package manager (`apt`, `dnf`, `yum`, `pacman`, `zypper`)
-- 📄 Generates log file with timestamps (e.g., `update-20250530-123456.log`)
-- 🧠 Clean, hacker-friendly code — no AI-ish style
+- ✅ **Multi-distro support**: Debian, Ubuntu, Kali, Fedora, Arch, CentOS, openSUSE
+- 🌐 **Internet check**: Skips update if no internet
+- 🔍 **Package manager detection**: Supports `apt`, `dnf`, `yum`, `pacman`, `zypper`
+- 📄 **Auto-logging**: Saves logs as `update-YYYYMMDD-HHMMSS.log`
+- 🧠 **Clean Bash**: Minimal, readable, no AI-ish code
+- 🔧 **Installer** (`install.sh`): Use `scriptup` globally as a command
 
 ---
 
-## 🚀 Usage
+## 🚀 Quick Start
+
+### ▶️ Run Manually
 
 ```bash
-# Make it executable
 chmod +x scriptup.sh
-
-# Run the script
 ./scriptup.sh
+```
+
+### 📥 Install Globally
+
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+Then use from anywhere:
+
+```bash
+scriptup
 ```
 
 ---
 
-## 📁 Output Example
+## 🧪 Output Example
 
 ```bash
 [*] Checking internet connection...
@@ -44,110 +72,90 @@ Running: sudo apt full-upgrade -y
 [+] Update completed at Fri May 30 14:21:04 2025
 [✔] All done! Log saved to update-20250530-142104.log
 ```
----
-
-## 🧠 Notes
-- Requires ```sudo``` privileges.
-- Make sure your system is connected to the internet.
-- Logs are stored in the same folder with a timestamp format.
-- I use Kali Linux WSL, it may work on some distros and some don't.
 
 ---
 
-## 🔹Real Output 
+## 📂 Logs
 
-```bash
+Each run generates a log file in the same directory:
 
-==========[ AUTO SYSTEM UPDATE ]==========
-
-[*] Checking internet connection...
-[+] Internet OK.
-[+] Package manager detected: apt
-[*] Starting system update...
-Running: sudo apt update
-[sudo] password for void:
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Get:1 http://mirror.primelink.net.id/kali kali-rolling InRelease [41.5 kB]
-Get:2 http://mirror.primelink.net.id/kali kali-rolling/main amd64 Packages [21.0 MB]
-
-Get:3 http://mirror.primelink.net.id/kali kali-rolling/main amd64 Contents (deb) [51.9 MB]
-Fetched 72.9 MB in 2min 19s (526 kB/s)
-Reading package lists...
-Building dependency tree...
-Reading state information...
-1 package can be upgraded. Run 'apt list --upgradable' to see it.
-Running: sudo apt full-upgrade -y
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Reading package lists...
-Building dependency tree...
-Reading state information...
-Calculating upgrade...
-The following package was automatically installed and is no longer required:
-  dnsutils
-Use 'sudo apt autoremove' to remove it.
-
-Upgrading:
-  libvpx9
-
-Summary:
-  Upgrading: 1, Installing: 0, Removing: 0, Not Upgrading: 0
-  Download size: 1,115 kB
-  Space needed: 0 B / 1,003 GB available
-
-Get:1 http://xsrv.moratelindo.io/kali kali-rolling/main amd64 libvpx9 amd64 1.15.0-2.1 [1,115 kB]
-Fetched 1,115 kB in 1s (1,051 kB/s)
-(Reading database ... 556348 files and directories currently installed.)
-Preparing to unpack .../libvpx9_1.15.0-2.1_amd64.deb ...
-Unpacking libvpx9:amd64 (1.15.0-2.1) over (1.15.0-2) ...
-Setting up libvpx9:amd64 (1.15.0-2.1) ...
-Processing triggers for libc-bin (2.41-6) ...
-[+] Update completed at Fri May 30 10:23:25 PM WIB 2025
-
-[✔] All done! Log saved to update-20250530-222045.log
 ```
+update-YYYYMMDD-HHMMSS.log
+```
+
+Example:
+
+```
+update-20250530-142104.log
+```
+
 ---
 
-## 🔹Real Output 2
+## 🧠 Requirements
 
-```bash
+- Linux OS with supported package manager
+- `bash` shell
+- `sudo` privileges
+- Internet connection
 
-[*] Checking for script updates...
-[✓] You're using the latest version (1.2).
+---
 
-==========[ AUTO SYSTEM UPDATE ]==========
+## 🔧 Files
 
-[*] Checking internet connection...
-[+] Internet OK.
-[+] Package manager detected: apt
-[*] Starting system update...
-Running: sudo apt update
+- `scriptup.sh` → Main updater script
+- `install.sh` → Adds `scriptup` command system-wide
 
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+---
 
-Hit:1 http://http.kali.org/kali kali-rolling InRelease
-Reading package lists...
-Building dependency tree...
-Reading state information...
-All packages are up to date.
-Running: sudo apt full-upgrade -y
+## 💻 Tested On
 
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+- ✅ Kali Linux (WSL2)
+- ✅ Ubuntu 22.04
+- ✅ Arch Linux (VM)
+- ✅ Fedora Workstation
+- ✅ Alpine 
+- ⚠️ openSUSE (beta support)
 
-Reading package lists...
-Building dependency tree...
-Reading state information...
-Calculating upgrade...
-The following package was automatically installed and is no longer required:
-  dnsutils
-Use 'sudo apt autoremove' to remove it.
+---
 
-Summary:
-  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 0
-[+] Update completed at Fri May 30 11:05:42 PM WIB 2025
+## 📜 License
 
-[✔] All done! Log saved to update-20250530-230539.log
-```
+This project is licensed under the MIT License.  
+Feel free to use, fork, modify, and share.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how:
+
+### 🧩 How to Contribute
+
+1. **Fork** this repo
+2. **Clone** your fork: `git clone https://github.com/Ildhaaannnnnnn/scriptup.git`
+3. Create a new branch: `git checkout -b your-feature-branch`
+4. Make your changes, commit: `git commit -m "Add feature"`
+5. Push to your fork: `git push origin your-feature-branch`
+6. Open a **Pull Request** on GitHub
+
+### 💡 Ideas You Can Help With
+
+- Support for Alpine or NixOS
+- Better installer with uninstall option
+- ZSH-compatible rewrite
+- GUI/Zenity wrapper
+- Integration with notification system
+
+---
+
+## 🙋‍♂️ Author
+
+**Ildhan** – [GitHub](https://github.com/Ildhaaannnnnnn)  
+Script started as a personal tool and is now open for the community.
+
+---
+
+## 🌍 Spread the Word
+
+If you like this project, consider giving it a ⭐ on GitHub and sharing it!  
+Let's make Linux updates less annoying.
