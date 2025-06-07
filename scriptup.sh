@@ -3,7 +3,7 @@
 # ==========================
 # Auto System Updater Script
 # Author : Ildhaaannnnnnn
-# Version: 1.2 
+# Version: 2.0
 # ==========================
 
 VERSION="1.2"
