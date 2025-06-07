@@ -3,7 +3,7 @@
 # ===============================================
 # ScriptUp Installer 
 # Author  : Ildhaaannnnnnn
-# Version : 1.2
+# Version : 2.0
 # ===============================================
 
 APP_NAME="scriptup"
